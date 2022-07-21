@@ -37,6 +37,50 @@
                         <a href="" class ="btn btn-danger btn-xs" onclick="return confirm('Are you sure to delete?')">Delete</a>
                     </td>
                 </tr>
+<div id="modaledit" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    Update Info
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form action="" method="'POST">
+                    <div class="form-group">
+                        <label>Movies Name:</label>
+                        <input type="text" class="form-control" name="name" value="anika">
+
+                    </div>
+                    <div class="form-group">
+                        <label>Release Date:</label>
+                        <input type="date" class="form-control" name="release date" value="1-1-22">
+                        
+                    </div>
+                    <div class="form-group">
+                        <label>Show time:</label>
+                        <input type="time" class="form-control" name="release date" value="11.30 AM">
+                        
+                    </div>
+                    <div class="form-group">
+                        <label>Genre:</label>
+                        <input type="text" class="form-control" name="genre" value="action">
+                        
+                    </div>
+                    <div class="form-group">
+                    
+                        <button class="btn btn-primary" type="submit">Update </button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                    
+                <button type="button" class="btn btn-secondary" data-dismiss ="modal">Close</button>
+            </div>
+    </div>
+    </div>
+</div>
             </table>
         </div>
 
