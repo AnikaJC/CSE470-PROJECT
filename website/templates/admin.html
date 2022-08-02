@@ -1,0 +1,135 @@
+{% extends "base.html" %} {% block title %}ADMIN MANAGE{% endblock %}
+
+{% block content %}
+<h1 align="center">Online Movie Booking </h1>
+<div class ="container"> 
+    <div class="row">
+      <div class ="col md-12">
+        <div class="jumbotron p-3 ">
+            <h2>
+                Manage
+                <b>Admin</b>
+                <button type ="button"
+                class = "btn btn-success float-right" data-toggle="modal" data-target="#anika">
+                Add New Movies
+            </button>
+            </h2>
+            <table class="table table-hover table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>MOVIES NAME</th>
+                    <th>Release date</th>
+                    <th>Show Time</th>
+                    
+                    <th>genre</th>
+
+
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>Doctor Stranger Multiverse Madness</td>
+                    <td>11th June 2021</td>
+                    <td>2.00pm</td>
+                    
+                    <td>Action</td>
+                    <td>
+                        <a href="" class ="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit">Edit </a> 
+                        <a href="" class ="btn btn-danger btn-xs" onclick="return confirm('Are you sure to delete?')">Delete</a>
+                    </td>
+                </tr>
+<div id="modaledit" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    Update Info
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form action="" method="'POST">
+                    <div class="form-group">
+                        <label>Movies Name:</label>
+                        <input type="text" class="form-control" name="name" value="anika">
+
+                    </div>
+                    <div class="form-group">
+                        <label>Release Date:</label>
+                        <input type="date" class="form-control" name="release date" value="1-1-22">
+                        
+                    </div>
+                    <div class="form-group">
+                        <label>Show time:</label>
+                        <input type="time" class="form-control" name="release date" value="11.30 AM">
+                        
+                    </div>
+                    <div class="form-group">
+                        <label>Genre:</label>
+                        <input type="text" class="form-control" name="genre" value="action">
+                        
+                    </div>
+                    <div class="form-group">
+                    
+                        <button class="btn btn-primary" type="submit">Update </button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                    
+                <button type="button" class="btn btn-secondary" data-dismiss ="modal">Close</button>
+            </div>
+    </div>
+    </div>
+</div>
+            </table>
+        </div>
+
+      </div>
+    </div>
+</div>
+<div id="anika" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class ="modal-content">
+        <div class ="modal-header">
+            <h4 class="modal-title"> Add Movies</h4>
+
+        </div>
+        <div class="modal-body">
+            <form action ="" method ="POST">
+                
+                <div class="form-group">
+                    <label>Movies Name:</label>
+                    <input type="text" class="form-control" name ="name" required="1">
+                </div>
+                <div class="form-group">
+                    <label>Release Date:</label>
+                    <input type="date" class="form-control" name ="release date" required="1">
+                </div>
+                <div class="form-group">
+                    <label>Show Time:</label>
+                    <input type="time" class="form-control" name ="show time" required="1">
+                </div>
+                
+                </div>
+                <div class="form-group">
+                    <label>Genre:</label>
+                    <input type="text" class="form-control" name ="genre" required="1">
+                </div>
+                <div class="form-group">
+                    
+                    <button class="btn btn-primary" type="submit">Add Movies </button>
+                </div>
+                
+
+                <div class="modal-footer">
+                    
+                    <button type="button" class="btn btn-secondary" data-dismiss ="modal">Close</button>
+                </div>
+            
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
