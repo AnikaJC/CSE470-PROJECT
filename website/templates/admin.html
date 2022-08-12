@@ -14,6 +14,20 @@
                 Add New Movies
             </button>
             </h2>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+
+            {% for message in messages %}
+            <div class="alert alert-success alter-dismissable fade show" role="alert">
+                
+                <button type="button" class="close" data-dismiss="alert">
+                  <span aria-hidden="true">x</span>
+                </button>
+                {{message}}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
             <table class="table table-hover table-dark">
                 <tr>
                     <th>ID</th>
@@ -23,12 +37,13 @@
 
 
                 </tr>
+                {% for row in movies %}
                 <tr>
-                    <td>01</td>
-                    <td>Doctor Stranger Multiverse Madness</td>
-                    <td>Sam Raimi</td>
+                    <td>{{row.id}}</td>
+                    <td>{{row.movies_name}}</td>
+                    <td>{{row.movies_director}}</td>
                     
-                    <td>Action</td>
+                    <td>{{row.genre}}</td>
                     <td>
                         <a href="" class ="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit">Edit </a> 
                         <a href="" class ="btn btn-danger btn-xs" onclick="return confirm('Are you sure to delete?')">Delete</a>
@@ -44,15 +59,15 @@
                 </h4>
             </div>
             <div class="modal-body">
-                <form action="" method="'POST">
+                <form action="/admin" method="'POST">
                     <div class="form-group">
                         <label>Movies Name:</label>
-                        <input type="text" class="form-control" name="name" value="anika">
+                        <input type="text" class="form-control" name="movies_name" value="anika">
 
                     </div>
                     <div class="form-group">
                         <label>Movie Director</label>
-                        <input type="text" class="form-control" name="Movie Director" value="Sam Raimi">
+                        <input type="text" class="form-control" name="movies_director" value="Sam Raimi">
                         
                     </div>
                     
@@ -74,7 +89,8 @@
     </div>
     </div>
 </div>
-            </table>
+{% endfor %}
+</table>
         </div>
 
       </div>
@@ -88,15 +104,15 @@
 
         </div>
         <div class="modal-body">
-            <form action ="" method ="POST">
+            <form action ="/admin" method ="POST">
                 
                 <div class="form-group">
                     <label>Movies Name:</label>
-                    <input type="text" class="form-control" name ="name" required="1">
+                    <input type="text" class="form-control" name ="movies_name" required="1">
                 </div>
                 <div class="form-group">
                     <label>Movie director:</label>
-                    <input type="text" class="form-control" name ="Sam Raimi" required="1">
+                    <input type="text" class="form-control" name ="movies_director" required="1">
                 </div>
                 
                 

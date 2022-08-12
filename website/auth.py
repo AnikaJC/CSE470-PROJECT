@@ -60,9 +60,7 @@ def signup():
 
     return (render_template("sign_up.html"))
 
-@auth.route('/admin')
-def admin():
-    return (render_template("admin.html"))
+
 
 
 
