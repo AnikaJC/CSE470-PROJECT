@@ -1,13 +1,18 @@
 from flask import Blueprint,render_template,request,flash,redirect,url_for
 from .models import AddMovie
 from .import db
+from flask_login import login_required,current_user
+
 views = Blueprint('views', __name__)
 
 @views.route('/')
+@login_required
 def home():
-    return render_template("home.html")
+    return render_template("home.html",user =current_user)
+
 
 @views.route('/admin',methods = ['GET','POST'])
+@login_required
 def admin():
     all_data = AddMovie.query.all()
     if request.method == 'POST':
@@ -21,7 +26,8 @@ def admin():
         flash("Movie added Successfully!")
 
         return redirect(url_for('views.admin'))
-    return render_template("admin.html",movies = all_data)
+    return render_template("admin.html",movies = all_data,user=current_user)
+
 
 @views.route('/update',methods =['POST'])
 def update():
@@ -36,6 +42,7 @@ def update():
         flash("Movie Successfully Updated!")
         return redirect(url_for('views.admin'))
     return render_template("admin.html")
+
 
 @views.route('/delete/<id>',methods = ['GET','POST'])
 def delete(id):
