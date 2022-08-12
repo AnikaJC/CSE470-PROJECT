@@ -45,11 +45,11 @@
                     
                     <td>{{row.genre}}</td>
                     <td>
-                        <a href="" class ="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit">Edit </a> 
+                        <a href="/update/{{row.id}}" class ="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.id}}">Edit </a> 
                         <a href="" class ="btn btn-danger btn-xs" onclick="return confirm('Are you sure to delete?')">Delete</a>
                     </td>
                 </tr>
-<div id="modaledit" class="modal fade" role="dialog">
+<div id="modaledit{{row.id}}" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
         <div class="modal-content">
@@ -59,21 +59,22 @@
                 </h4>
             </div>
             <div class="modal-body">
-                <form action="/admin" method="'POST">
+                <form action="/update" method="POST">
                     <div class="form-group">
                         <label>Movies Name:</label>
-                        <input type="text" class="form-control" name="movies_name" value="anika">
+                        <input type="hidden"  name="id" value="{{row.id}}">
+                        <input type="text" class="form-control" name="movies_name" value="{{row.movies_name}}">
 
                     </div>
                     <div class="form-group">
                         <label>Movie Director</label>
-                        <input type="text" class="form-control" name="movies_director" value="Sam Raimi">
+                        <input type="text" class="form-control" name="movies_director" value="{{row.movies_director}}">
                         
                     </div>
                     
                     <div class="form-group">
                         <label>Genre:</label>
-                        <input type="text" class="form-control" name="genre" value="action">
+                        <input type="text" class="form-control" name="genre" value="{{row.genre}}">
                         
                     </div>
                     <div class="form-group">
