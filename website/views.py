@@ -36,6 +36,19 @@ def update():
         flash("Movie Successfully Updated!")
         return redirect(url_for('views.admin'))
     return render_template("admin.html")
+
+@views.route('/delete/<id>',methods = ['GET','POST'])
+def delete(id):
+    movie_data = AddMovie.query.get(id)
+    db.session.delete(movie_data)
+    db.session.commit()
+    flash("Movie Successfully Deleted!")
+    return redirect(url_for('views.admin'))
+
+
+
+
+
     
 
 
