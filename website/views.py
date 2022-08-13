@@ -8,7 +8,8 @@ views = Blueprint('views', __name__)
 @views.route('/')
 @login_required
 def home():
-    return render_template("home.html",user =current_user)
+    all_data = AddMovie.query.all()
+    return render_template("home.html",user =current_user,movies = all_data)
 
 
 @views.route('/admin',methods = ['GET','POST'])
