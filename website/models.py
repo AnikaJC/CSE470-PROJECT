@@ -11,7 +11,24 @@ class AddMovie(db.Model):
     genre = db.Column(db.String(150))
     #showtime = db.relationship("ShowTime", back_populates="addmovie", uselist=False)
     #user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+class AddShow(db.Model):
+    #__tablename__ = "addshow"
+    show_id = db.Column(db.Integer,primary_key=True)
+    movies_name = db.Column(db.Text)
+    show_date = db.Column(db.Text)
+    show_time = db.Column(db.Text)
+    seats = db.Column(db.Integer)
 
+class BookMovieShow(db.Model):
+    #__tablename__ = "bookmovieshow"
+    book_id = db.Column(db.Integer,primary_key = True)
+    movies_name = db.Column(db.String(150))
+    user_id = db.Column(db.Integer)
+    show_date = db.Column(db.Text)
+    show_time = db.Column(db.Text)
+    tickets = db.Column(db.Integer)
+    price = db.Column(db.Integer)
+   
     
 #class ShowTime(db.Model):
     #__tablename__ = "showtime"
