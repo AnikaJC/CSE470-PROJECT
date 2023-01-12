@@ -21,6 +21,12 @@ password: `pass`
 ```
     
 ## Screenshots
+Admin:
+![Admin](https://user-images.githubusercontent.com/68474664/212082063-a9ce5369-6948-4c59-b0c8-62499c5169b1.png)
+
+
+User:
+![user](https://user-images.githubusercontent.com/68474664/212082278-010bb800-6496-45c8-9e98-0af2a9c6d894.png)
 
 
 
